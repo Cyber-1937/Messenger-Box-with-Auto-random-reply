@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get elements
+    // Element
     const messageInput = document.getElementById('message-input');
     const sendButton = document.getElementById('send-button');
     const messagesContainer = document.getElementById('messages');
     
-    // Get username
+    // Username Random test
     const username = prompt('Enter your username:') || 'Anonymous';
     
-    // Focus input field immediately
+    // inputt
     messageInput.focus();
     
     function addMessage(content, isReceived) {
@@ -23,19 +23,18 @@ document.addEventListener('DOMContentLoaded', function() {
     function sendMessage() {
         const content = messageInput.value.trim();
         if (content) {
-            // Add user's message
+            // Add message
             addMessage(content, false);
             messageInput.value = '';
             messageInput.focus();
             
-            // Add automated reply after 1 second
+            // Auto reply 1sec
             setTimeout(() => {
                 addMessage('This is an automated reply to: ' + content, true);
             }, 1000);
         }
     }
     
-    // Event listeners
     sendButton.addEventListener('click', sendMessage);
     messageInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
@@ -43,6 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Welcome message
+    // Welcome 
     addMessage('Welcome to the chat, ' + username + '!', true);
 });
